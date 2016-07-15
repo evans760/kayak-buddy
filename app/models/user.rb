@@ -14,6 +14,16 @@ class User < ApplicationRecord
   presence: true,
   length: { in: 2...20 }
 
+  validates :gender,
+  presence: true
+
+  validates :skill_level,
+  presence: true
+
+
+  validates :city,
+  presence: true
+
 
   def self.authenticate(params)
     User.find_by_email(params[:email]).try(:authenticate, params[:password])
